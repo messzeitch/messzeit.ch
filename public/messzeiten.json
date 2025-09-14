@@ -1,0 +1,14 @@
+[
+  {
+    "parish_id": "p001",
+    "parish_name": "St. Nikolaus",
+    "city": "Zürich",
+    "start": "2025-09-14T09:00:00+02:00",
+    "end":   "2025-09-14T10:00:00+02:00",
+    "language": "DE",
+    "lat": 47.3769,
+    "lng": 8.5417,
+    "address": "Musterstrasse 1, Zürich",
+    "source": "ics"
+  }
+]
