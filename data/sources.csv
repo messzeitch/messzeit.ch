@@ -1,0 +1,3 @@
+parish_id,parish_name,city,source_type,source_url,timezone,notes
+p001,St. Nikolaus,Zurich,ics,https://example.ch/kalender.ics,Europe/Zurich,---
+p002,St. Peter,Basel,html,https://example.ch/messzeiten,Europe/Zurich,WordPress Events
