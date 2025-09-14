@@ -1,0 +1,30 @@
+name: Build today from Kirchenblatt
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # 每小时；要每天4点：0 4 * * *
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install -r requirements.txt
+      - run: python scripts/fetch_today_kirchenblatt.py
+      - name: Commit & Push JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add public/api/today.json
+            git commit -m "update today.json from Kirchenblatt"
+            git push
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
