@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Messzeit.ch – Röm.-kath. Messzeiten</title>
-  <!-- Tailwind CDN（可选，先保留你自己的 CSS，如果要用 Tailwind 再替换） -->
+  <!-- 引入优雅法式斜体字体 -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -111,6 +111,7 @@
       font-weight:400;
       font-style:normal;
     }
+    /* Push 订阅按钮样式 */
     .btn-subscribe {
       margin-top:24px;
       padding:10px 16px;
@@ -126,13 +127,13 @@
     }
   </style>
 
-  <!-- 🔔 OneSignal Push Notification -->
+  <!-- 🔔 OneSignal Push Notification SDK -->
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     OneSignalDeferred.push(async function(OneSignal) {
       await OneSignal.init({
-        appId: "162a5f05-9720-4b73-9634-37218a31f3bb", // 替换为你的真实 App ID
+        appId: "162a5f05-9720-4b73-9634-37218a31f3bb", // ← 这里换成你的真实 App ID
       });
     });
   </script>
