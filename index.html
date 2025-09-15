@@ -174,6 +174,26 @@
       🔔 Zeit Änderung melden
     </a>
   </div>
+<!-- 订阅按钮 -->
+<div style="margin-top:24px;">
+  <button id="subscribePush"
+          style="padding:10px 16px;border-radius:10px;background:#d6b86b;color:#fff;font-weight:600;border:none;cursor:pointer">
+    🔔 订阅推送 / Push abonnieren
+  </button>
+</div>
+
+<script>
+  // 点击按钮 → 显示 OneSignal 的订阅弹窗
+  document.getElementById('subscribePush').addEventListener('click', async () => {
+    try {
+      if (window.OneSignal) {
+        const OneSignal = await window.OneSignalDeferred?.push((OS)=>OS) || window.OneSignal;
+        // v16 推荐的 slidedown 触发
+        OneSignal.Slidedown.promptPush();
+      }
+    } catch (e) { console.warn(e); }
+  });
+</script>
 
   <main>
     <h2>Bald verfügbar</h2>
