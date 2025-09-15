@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Messzeit.ch – Röm.-kath. Messzeiten</title>
-  <!-- 引入优雅法式斜体字体 -->
+  <!-- Tailwind CDN（可选，先保留你自己的 CSS，如果要用 Tailwind 再替换） -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -44,9 +44,9 @@
       color:#444;
       display:inline-block;
       padding:8px 14px;
-      border:1px solid #ddd;   /* 浅灰色边框 */
-      border-radius:8px;       /* 圆角 */
-      background:#fffefa;      /* 微暖白背景 */
+      border:1px solid #ddd;
+      border-radius:8px;
+      background:#fffefa;
     }
     .contact-email a {
       color:#b49440;
@@ -111,6 +111,19 @@
       font-weight:400;
       font-style:normal;
     }
+    .btn-subscribe {
+      margin-top:24px;
+      padding:10px 16px;
+      border-radius:10px;
+      background:#d6b86b;
+      color:#fff;
+      font-weight:600;
+      border:none;
+      cursor:pointer;
+    }
+    .btn-subscribe:hover {
+      background:#b49440;
+    }
   </style>
 
   <!-- 🔔 OneSignal Push Notification -->
@@ -119,45 +132,15 @@
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     OneSignalDeferred.push(async function(OneSignal) {
       await OneSignal.init({
-        appId: "162a5f05-9720-4b73-9634-37218a31f3bb", // 替换成你的 App ID
+        appId: "162a5f05-9720-4b73-9634-37218a31f3bb", // 替换为你的真实 App ID
       });
     });
   </script>
 </head>
-<script>
-(async function(){
-  try {
-    const r = await fetch('/api/today.json', {cache:'no-store'});
-    if(!r.ok) return;
-    const data = await r.json();
-    if(!Array.isArray(data) || !data.length) return;
-
-    const box = document.createElement('div');
-    box.style.maxWidth='720px';
-    box.style.margin='30px auto';
-    box.style.textAlign='left';
-    box.innerHTML = '<h3 style="text-align:center;margin:0 0 12px;font-style:italic;">Heutige Messen</h3>';
-
-    data.forEach(ev=>{
-      const d = new Date(ev.start);
-      const time = d.toLocaleTimeString('de-CH',{hour:'2-digit', minute:'2-digit'});
-      const line = document.createElement('div');
-      line.style.padding='8px 0';
-      line.textContent = `${time} — ${ev.title}${ev.location ? ' @ ' + ev.location : ''}`;
-      box.appendChild(line);
-    });
-
-    document.body.appendChild(box);
-  } catch (e) {
-    console.warn('today.json failed', e);
-  }
-})();
-</script>
-  
 <body>
   <header>
     <!-- Logo -->
-    <img src="logo.png" alt="Messzeit Logo" class="logo">
+    <img src="images/logo.png" alt="Messzeit Logo" class="logo">
 
     <h1>Messzeit.ch</h1>
     <p class="subtitle">Römisch-katholische Messzeiten in der Schweiz</p>
@@ -168,32 +151,12 @@
     </div>
   </header>
 
-  <!-- Änderung melden / 提交更改 -->
+  <!-- Änderung melden -->
   <div class="submit-change">
     <a href="https://forms.gle/DEIN-FORM-LINK" target="_blank">
       🔔 Zeit Änderung melden
     </a>
   </div>
-<!-- 订阅按钮 -->
-<div style="margin-top:24px;">
-  <button id="subscribePush"
-          style="padding:10px 16px;border-radius:10px;background:#d6b86b;color:#fff;font-weight:600;border:none;cursor:pointer">
-    🔔 订阅推送 / Push abonnieren
-  </button>
-</div>
-
-<script>
-  // 点击按钮 → 显示 OneSignal 的订阅弹窗
-  document.getElementById('subscribePush').addEventListener('click', async () => {
-    try {
-      if (window.OneSignal) {
-        const OneSignal = await window.OneSignalDeferred?.push((OS)=>OS) || window.OneSignal;
-        // v16 推荐的 slidedown 触发
-        OneSignal.Slidedown.promptPush();
-      }
-    } catch (e) { console.warn(e); }
-  });
-</script>
 
   <main>
     <h2>Bald verfügbar</h2>
@@ -202,12 +165,27 @@
 
     <!-- App Store Button -->
     <div class="store-buttons">
-      <a href="#"><img src="appstore.png" alt="Download on the App Store"></a>
+      <a href="#"><img src="images/appstore.png" alt="Download on the App Store"></a>
     </div>
+
+    <!-- Push订阅按钮 -->
+    <button id="subscribePush" class="btn-subscribe">🔔 Push abonnieren</button>
   </main>
 
   <footer>
     © 2025 Messzeit.ch - entwickelt von Arcojo Creativ - Lin Nünlist
   </footer>
+
+  <!-- 手动触发 OneSignal Slidedown -->
+  <script>
+    document.getElementById('subscribePush').addEventListener('click', async () => {
+      try {
+        const OneSignal = window.OneSignal || null;
+        if (OneSignal) {
+          OneSignal.Slidedown.promptPush();
+        }
+      } catch (e) { console.warn("OneSignal error:", e); }
+    });
+  </script>
 </body>
 </html>
