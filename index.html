@@ -1,183 +1,10 @@
-<!doctype html>
-<html lang="de">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Messzeit.ch – Röm.-kath. Messzeiten</title>
-  <!-- 引入优雅法式斜体字体 -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin:0;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background:#faf9f7;
-      color:#2b2b2b;
-      text-align:center;
-      line-height:1.7;
-    }
-    header {
-      padding:50px 20px 30px;
-    }
-    header img.logo {
-      max-width:110px;
-      height:auto;
-      margin-bottom:18px;
-    }
-    h1 {
-      margin:0.2em 0;
-      font-size:44px;
-      font-family: 'Playfair Display', serif;
-      font-style:italic;
-      font-weight:600;
-      color:#2c2418;
-      letter-spacing:1px;
-    }
-    p.subtitle {
-      margin:0;
-      font-size:19px;
-      color:#7a6b59;
-      font-style:italic;
-    }
-    .contact-email {
-      margin-top:20px;
-      font-size:17px;
-      color:#444;
-      display:inline-block;
-      padding:8px 14px;
-      border:1px solid #ddd;
-      border-radius:8px;
-      background:#fffefa;
-    }
-    .contact-email a {
-      color:#b49440;
-      text-decoration:none;
-      font-weight:500;
-    }
-    .contact-email a:hover {
-      text-decoration:underline;
-    }
-    .store-buttons {
-      margin-top:40px;
-      display:flex;
-      justify-content:center;
-      gap:20px;
-    }
-    .store-buttons img {
-      height:60px;
-      cursor:pointer;
-      transition:transform 0.2s;
-    }
-    .store-buttons img:hover {
-      transform:scale(1.05);
-    }
-    main {
-      padding:40px 20px;
-    }
-    main h2 {
-      font-size:26px;
-      font-style:italic;
-      font-weight:500;
-      margin-bottom:12px;
-      color:#3c332b;
-    }
-    main p {
-      font-size:18px;
-      color:#555;
-      max-width:600px;
-      margin:0 auto 20px;
-    }
-    .submit-change {
-      margin-top:30px;
-    }
-    .submit-change a {
-      display:inline-block;
-      padding:12px 20px;
-      border-radius:10px;
-      background:#d6b86b;
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-      transition:background 0.2s;
-    }
-    .submit-change a:hover {
-      background:#b49440;
-    }
-    footer {
-      margin-top:60px;
-      padding:20px;
-      background:#f1eee8;
-      color:#555;
-      font-size:13px;
-      font-weight:400;
-      font-style:normal;
-    }
-    /* Push 订阅按钮样式 */
-    .btn-subscribe {
-      margin-top:24px;
-      padding:10px 16px;
-      border-radius:10px;
-      background:#d6b86b;
-      color:#fff;
-      font-weight:600;
-      border:none;
-      cursor:pointer;
-    }
-    .btn-subscribe:hover {
-      background:#b49440;
-    }
-  </style>
+<header>
+  <!-- Logo -->
+  <img src="logo.png" alt="Messzeit Logo" class="logo">
 
-  <!-- 🔔 OneSignal Push Notification SDK -->
-  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-  <script>
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-    OneSignalDeferred.push(async function(OneSignal) {
-      await OneSignal.init({
-        appId: "162a5f05-9720-4b73-9634-37218a31f3bb", // ← 这里换成你的真实 App ID
-      });
-    });
-  </script>
-</head>
-<body>
-  <header>
-    <!-- Logo -->
-    <img src="images/logo.png" alt="Messzeit Logo" class="logo">
-
-    <h1>Messzeit.ch</h1>
-    <p class="subtitle">Römisch-katholische Messzeiten in der Schweiz</p>
-
-    <!-- Email -->
-    <div class="contact-email">
-      Kontakt: <a href="mailto:info@messzeit.ch">info@messzeit.ch</a>
-    </div>
-  </header>
-
-  <!-- Änderung melden -->
-  <div class="submit-change">
-    <a href="https://forms.gle/DEIN-FORM-LINK" target="_blank">
-      🔔 Zeit Änderung melden
-    </a>
-  </div>
-
-  <main>
-    <h2>Bald verfügbar</h2>
-    <p>Hier erscheinen täglich aktualisierte katholische Messzeiten,
-       sortiert nach Nähe und in mehreren Sprachen verfügbar.</p>
-
-    <!-- App Store Button -->
-    <div class="store-buttons">
-      <a href="#"><img src="images/appstore.png" alt="Download on the App Store"></a>
-    </div>
-
-    <!-- Push订阅按钮 -->
-    <button id="subscribePush" class="btn-subscribe">🔔 Push abonnieren</button>
-  </main>
-
-  <footer>
-    © 2025 Messzeit.ch - entwickelt von Arcojo Creativ - Lin Nünlist
-  </footer>
-
-  <!-- 手动触发 OneSignal Slidedown -->
+  <h1>Messzeit.ch</h1>
+  <p class="subtitle">Römisch-katholische Messzeiten in der Schweiz</p>
+ <!-- 手动触发 OneSignal Slidedown -->
   <script>
     document.getElementById('subscribePush').addEventListener('click', async () => {
       try {
@@ -190,3 +17,25 @@
   </script>
 </body>
 </html>
+  <!-- Email -->
+  <div class="contact-email">
+    Kontakt: <a href="mailto:info@messzeit.ch">info@messzeit.ch</a>
+  </div>
+</header>
+
+<div class="submit-change">
+  <a href="https://forms.gle/DEIN-FORM-LINK" target="_blank">
+    🔔 Zeit Änderung melden
+  </a>
+</div>
+
+<main>
+  <h2>Bald verfügbar</h2>
+  <p>Hier erscheinen täglich aktualisierte katholische Messzeiten,
+     sortiert nach Nähe und in mehreren Sprachen verfügbar.</p>
+
+  <!-- App Store Button -->
+  <div class="store-buttons">
+    <a href="#"><img src="appstore.png" alt="Download on the App Store"></a>
+  </div>
+</main>
