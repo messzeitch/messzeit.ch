@@ -39,3 +39,30 @@
     <a href="#"><img src="appstore.png" alt="Download on the App Store"></a>
   </div>
 </main>
+<!-- 1) Logo 路径修正 -->
+<img src="logo.png" alt="Messzeit Logo" class="logo">
+
+<!-- 2) App Store 按钮路径修正 -->
+<div class="store-buttons">
+  <a href="#"><img src="appstore.png" alt="Download on the App Store"></a>
+</div>
+
+<!-- 3) 订阅按钮（如果你已经有就保持一致）-->
+<button id="subscribePush" class="btn-subscribe">🔔 Push abonnieren</button>
+
+<!-- 4) 放在 </body> 之前：等待 SDK 就绪再触发 -->
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    const btn = document.getElementById('subscribePush');
+    if (!btn) return;
+    btn.addEventListener('click', async () => {
+      try {
+        await OneSignal.Slidedown.promptPush();
+      } catch (e) {
+        console.warn('OneSignal prompt error:', e);
+        alert('Push-Benachrichtigungen konnten nicht initialisiert werden.');
+      }
+    });
+  });
+</script>
