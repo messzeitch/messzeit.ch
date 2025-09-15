@@ -102,6 +102,19 @@
     .submit-change a:hover {
       background:#b49440;
     }
+    .btn-subscribe {
+      margin-top:24px;
+      padding:10px 16px;
+      border-radius:10px;
+      background:#d6b86b;
+      color:#fff;
+      font-weight:600;
+      border:none;
+      cursor:pointer;
+    }
+    .btn-subscribe:hover {
+      background:#b49440;
+    }
     footer {
       margin-top:60px;
       padding:20px;
@@ -113,7 +126,7 @@
     }
   </style>
 
-  <!-- 🔔 OneSignal Push Notification -->
+  <!-- 🔔 OneSignal Push Notification SDK -->
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
     window.OneSignalDeferred = window.OneSignalDeferred || [];
@@ -121,6 +134,13 @@
       await OneSignal.init({
         appId: "162a5f05-9720-4b73-9634-37218a31f3bb", // 替换成你的 App ID
       });
+      // 保证按钮能触发弹窗
+      const btn = document.getElementById('subscribePush');
+      if (btn) {
+        btn.addEventListener('click', () => {
+          OneSignal.Slidedown.promptPush();
+        });
+      }
     });
   </script>
 </head>
@@ -154,6 +174,9 @@
     <div class="store-buttons">
       <a href="#"><img src="appstore.png" alt="Download on the App Store"></a>
     </div>
+
+    <!-- Push订阅按钮 -->
+    <button id="subscribePush" class="btn-subscribe">🔔 Push abonnieren</button>
   </main>
 
   <footer>
