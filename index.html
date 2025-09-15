@@ -4,175 +4,160 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Messzeit.ch – Röm.-kath. Messzeiten</title>
-
-  <!-- 优雅的斜体标题字体 -->
+  <!-- 引入优雅法式斜体字体 -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&display=swap" rel="stylesheet">
-
   <style>
-    :root{
-      --gold:#d6b86b;
-      --gold-dark:#b49440;
-      --ink:#2c2418;
-      --muted:#7a6b59;
-      --paper:#faf9f7;
-      --chip:#fffefa;
-      --line:#dddddd;
+    body {
+      margin:0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background:#faf9f7;
+      color:#2b2b2b;
+      text-align:center;
+      line-height:1.7;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;background:var(--paper);color:#2b2b2b;
-      font-family:"Helvetica Neue",Arial,sans-serif;line-height:1.7;text-align:center;
+    header {
+      padding:50px 20px 30px;
     }
-    header{padding:50px 20px 30px}
-    header img.logo{max-width:110px;height:auto;margin-bottom:18px}
-    h1{
-      margin:.2em 0;font-size:44px;color:var(--ink);
-      font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:1px;
+    header img.logo {
+      max-width:110px;
+      height:auto;
+      margin-bottom:18px;
     }
-    p.subtitle{margin:0;font-size:19px;color:var(--muted);font-style:italic}
-    .contact-email{
-      margin-top:20px;font-size:17px;color:#444;display:inline-block;
-      padding:8px 14px;border:1px solid var(--line);border-radius:8px;background:var(--chip);
+    h1 {
+      margin:0.2em 0;
+      font-size:44px;
+      font-family: 'Playfair Display', serif;
+      font-style:italic;
+      font-weight:600;
+      color:#2c2418;
+      letter-spacing:1px;
     }
-    .contact-email a{color:var(--gold-dark);text-decoration:none;font-weight:500}
-    .contact-email a:hover{text-decoration:underline}
-    main{padding:40px 20px}
-    main h2{font-size:26px;font-style:italic;font-weight:500;margin-bottom:12px;color:#3c332b}
-    main p{font-size:18px;color:#555;max-width:680px;margin:0 auto 20px}
-    .store-buttons{margin-top:28px;display:flex;justify-content:center;gap:20px;flex-wrap:wrap}
-    .store-buttons img{height:60px;cursor:pointer;transition:transform .2s}
-    .store-buttons img:hover{transform:scale(1.05)}
-    .submit-change{margin-top:26px}
-    .btn{
-      display:inline-block;padding:12px 20px;border-radius:10px;background:var(--gold);
-      color:#fff;text-decoration:none;font-weight:600;transition:background .2s,opacity .2s;border:none;cursor:pointer
+    p.subtitle {
+      margin:0;
+      font-size:19px;
+      color:#7a6b59;
+      font-style:italic;
     }
-    .btn:hover{background:var(--gold-dark)}
-    .btn-secondary{
-      display:inline-block;padding:10px 16px;border-radius:10px;border:1px solid var(--gold-dark);
-      color:var(--ink);background:#fff;font-weight:600;text-decoration:none;cursor:pointer
+    .contact-email {
+      margin-top:20px;
+      font-size:17px;
+      color:#444;
+      display:inline-block;
+      padding:8px 14px;
+      border:1px solid #ddd;   /* 浅灰色边框 */
+      border-radius:8px;       /* 圆角 */
+      background:#fffefa;      /* 微暖白背景 */
     }
-    .btn-secondary:hover{background:#fff8ea}
-    footer{margin-top:60px;padding:20px;background:#f1eee8;color:#555;font-size:13px}
-    /* 推送订阅按钮 */
-    .btn-subscribe{margin-top:20px}
-    /* 今日弥撒列表容器（可选显示） */
-    .today-box{max-width:720px;margin:30px auto 0;text-align:left}
-    .today-title{text-align:center;margin:0 0 12px;font-style:italic}
-    .today-item{padding:8px 0;border-bottom:1px dashed #e7e1d6}
-    .today-item:last-child{border-bottom:none}
+    .contact-email a {
+      color:#b49440;
+      text-decoration:none;
+      font-weight:500;
+    }
+    .contact-email a:hover {
+      text-decoration:underline;
+    }
+    .store-buttons {
+      margin-top:40px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+    }
+    .store-buttons img {
+      height:60px;
+      cursor:pointer;
+      transition:transform 0.2s;
+    }
+    .store-buttons img:hover {
+      transform:scale(1.05);
+    }
+    main {
+      padding:40px 20px;
+    }
+    main h2 {
+      font-size:26px;
+      font-style:italic;
+      font-weight:500;
+      margin-bottom:12px;
+      color:#3c332b;
+    }
+    main p {
+      font-size:18px;
+      color:#555;
+      max-width:600px;
+      margin:0 auto 20px;
+    }
+    .submit-change {
+      margin-top:30px;
+    }
+    .submit-change a {
+      display:inline-block;
+      padding:12px 20px;
+      border-radius:10px;
+      background:#d6b86b;
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      transition:background 0.2s;
+    }
+    .submit-change a:hover {
+      background:#b49440;
+    }
+    footer {
+      margin-top:60px;
+      padding:20px;
+      background:#f1eee8;
+      color:#555;
+      font-size:13px;
+      font-weight:400;
+      font-style:normal;
+    }
   </style>
 
-  <!-- 🔔 OneSignal Web Push SDK（v16） -->
+  <!-- 🔔 OneSignal Push Notification -->
   <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
   <script>
-    // 确保初始化使用你的 App ID
     window.OneSignalDeferred = window.OneSignalDeferred || [];
     OneSignalDeferred.push(async function(OneSignal) {
       await OneSignal.init({
-        appId: "162a5f05-9720-4b73-9634-37218a31f3bb", // ← 保持与你后台一致
-        // 如果你启用了 Safari Web ID，可在此加入：safari_web_id: "..."
+        appId: "162a5f05-9720-4b73-9634-37218a31f3bb", // 替换成你的 App ID
       });
     });
   </script>
 </head>
 <body>
   <header>
-    <!-- ✅ 路径修复：文件在根目录 -->
+    <!-- Logo -->
     <img src="logo.png" alt="Messzeit Logo" class="logo">
 
     <h1>Messzeit.ch</h1>
     <p class="subtitle">Römisch-katholische Messzeiten in der Schweiz</p>
 
+    <!-- Email -->
     <div class="contact-email">
       Kontakt: <a href="mailto:info@messzeit.ch">info@messzeit.ch</a>
     </div>
   </header>
 
-  <!-- 变更上报入口 -->
+  <!-- Änderung melden / 提交更改 -->
   <div class="submit-change">
-    <a class="btn" href="https://forms.gle/DEIN-FORM-LINK" target="_blank" rel="noopener">
-      🔔 Änderung melden / 提交更改
+    <a href="https://forms.gle/DEIN-FORM-LINK" target="_blank">
+      🔔 Zeit Änderung melden
     </a>
   </div>
 
   <main>
     <h2>Bald verfügbar</h2>
-    <p>Hier erscheinen täglich aktualisierte katholische Messzeiten, sortiert nach Nähe und in mehreren Sprachen verfügbar.</p>
+    <p>Hier erscheinen täglich aktualisierte katholische Messzeiten,
+       sortiert nach Nähe und in mehreren Sprachen verfügbar.</p>
 
+    <!-- App Store Button -->
     <div class="store-buttons">
-      <!-- ✅ 路径修复：文件在根目录 -->
       <a href="#"><img src="appstore.png" alt="Download on the App Store"></a>
-      <!-- <a href="#"><img src="googleplay.png" alt="Get it on Google Play"></a> -->
     </div>
-
-    <!-- 推送订阅按钮（手动触发 Slidedown） -->
-    <button id="subscribePush" class="btn btn-subscribe">🔔 Push abonnieren</button>
-
-    <!-- （可选）今日弥撒渲染：当 /api/today.json 可用时会自动显示，无则静默 -->
-    <!--
-    <div id="todayMount" class="today-box" style="display:none"></div>
-    -->
   </main>
 
   <footer>
-    © 2025 Messzeit.ch — entwickelt von Arcojo Creativ — Lin Nünlist
+    © 2025 Messzeit.ch - entwickelt von Arcojo Creativ - Lin Nünlist
   </footer>
-
-  <!-- 触发 OneSignal 订阅弹窗 & （可选）今日数据渲染 -->
-  <script>
-    // 订阅按钮：等 SDK 就绪再挂载，避免点击无效
-    window.OneSignalDeferred = window.OneSignalDeferred || [];
-    OneSignalDeferred.push(async function(OneSignal) {
-      const btn = document.getElementById('subscribePush');
-      if (btn) {
-        btn.addEventListener('click', async () => {
-          try {
-            await OneSignal.Slidedown.promptPush();
-          } catch (e) {
-            console.warn('OneSignal prompt error:', e);
-            alert('Push-Benachrichtigungen konnten nicht initialisiert werden.');
-          }
-        });
-      }
-    });
-
-    // （可选）渲染 /api/today.json，若没有则静默
-    /*
-    (async function(){
-      try{
-        const r = await fetch('/api/today.json', {cache:'no-store'});
-        if(!r.ok) return;
-        const data = await r.json();
-        if(!Array.isArray(data) && !Array.isArray(data.items)) return;
-
-        const list = Array.isArray(data) ? data : data.items;
-        if(!list.length) return;
-
-        const mount = document.getElementById('todayMount');
-        mount.style.display = 'block';
-        mount.innerHTML = '<h3 class="today-title">Heutige Messen</h3>';
-        list.forEach(ev=>{
-          const line = document.createElement('div');
-          line.className = 'today-item';
-          // 兼容两种结构：数组项 or {items:[{line: "..."}]}
-          if (ev.line) {
-            line.textContent = ev.line;
-          } else {
-            const d = new Date(ev.start);
-            const t = d.toLocaleTimeString('de-CH', {hour:'2-digit', minute:'2-digit'});
-            line.textContent = `${t} — ${ev.title || 'Messe'}${ev.location ? ' @ ' + ev.location : ''}`;
-          }
-          mount.appendChild(line);
-        });
-      }catch(e){ /* 静默 */ }
-    })();
-    */
-  </script>
-
-  <!-- 提示：请确保站点根目录存在 OneSignal Service Worker 文件：
-       /OneSignalSDKWorker.js  内容仅一行：
-       importScripts('https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js');
-       （可选）/OneSignalSDKUpdaterWorker.js 同一行内容。 -->
 </body>
 </html>
